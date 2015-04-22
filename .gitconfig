@@ -1,15 +1,24 @@
+[gui]
+[http]
+	sslVerify = false
+	postBuffer = 104857600
+[push]
+	default = simple
 [user]
-  name = Nuno Silva
-  email = nunos@zi-yu.com
-[difftool]
-  prompt = false
+	name = Nuno Silva
+	email = nuno.silva@bskyb.com
 [alias]
   d = difftool
+  c = commit -a -m
+  po = push origin
   s = status -s
   cl = clone
   ci = commit
   co = checkout
+  cob = checkout -b
   br = branch
+  sc = stash save "app.config"
+  ac = stash apply stash^{/app.config}
   latest = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
   l = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset'
   unmerged = branch --no-merged
@@ -22,4 +31,8 @@
   status = auto
   branch = auto
 [core]
-  editor = nano
+  editor = vim
+	autocrlf = true
+	excludesfile = C:\\Users\\NSI03\\Documents\\gitignore_global.txt
+[credential]
+	helper = !'C:\\Users\\NSI03\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'

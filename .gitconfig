@@ -6,7 +6,7 @@
 	default = simple
 [user]
 	name = Nuno Silva
-	email = nuno.silva@bskyb.com
+	email = 
 [alias]
   d = difftool
   c = commit -a -m
@@ -17,8 +17,6 @@
   co = checkout
   cob = checkout -b
   br = branch
-  sc = stash save "app.config"
-  ac = stash apply stash^{/app.config}
   latest = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
   l = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset'
   unmerged = branch --no-merged
@@ -26,13 +24,21 @@
   last = log -1 HEAD
   active-branches = for-each-ref --sort=committerdate refs/heads/
 [color]
-  ui = true
-  diff = auto
-  status = auto
-  branch = auto
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
 [core]
-  editor = vim
-	autocrlf = true
-	excludesfile = C:\\Users\\NSI03\\Documents\\gitignore_global.txt
-[credential]
-	helper = !'C:\\Users\\NSI03\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
+  editor = nano

@@ -6,14 +6,15 @@
 	default = simple
 [user]
 	name = Nuno Silva
-	email = 
+	email = nunoas@users.noreply.github.com
 [alias]
   d = difftool
-  c = commit -a -m
+  c = commit
   po = push origin
+  po = push origin -f
   s = status -s
   cl = clone
-  ci = commit
+  a = commit --amend
   co = checkout
   cob = checkout -b
   br = branch
@@ -41,4 +42,9 @@
     changed = green
     untracked = cyan
 [core]
-  editor = nano
+  editor = code --wait
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
